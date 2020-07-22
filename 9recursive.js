@@ -18,4 +18,42 @@ function recursive_factorial(number){
     return number * recursive_factorial(number - 1)
 }
 
-console.log(recursive_factorial(6))
+// console.log(recursive_factorial(6))
+
+function fab(n){
+  if(n <= 0){
+    return n
+  }
+  return fab(n - 1) + fab(n-2)
+}
+// 1.   3 , 2 , 1 , 0 -- 4 ,2 , 0
+console.log(fab(4))
+
+
+
+
+function merge(left , right){
+  let sorted_arr = []
+  let left_index = 0
+  let right_index = 0
+  for(let i = 0 ; i < (left.length) + (right.length); i++){
+    if (left_index < left.length && right_index < right.length){
+      if (left[left_index] <= right[right_index]){
+        left.push(left[left_index])
+        left_index += 1
+      } else {
+        right.push(right[right_index])
+        right_index += 1
+      }
+    }
+    else if (left_index === left.length){
+      sorted_arr.push(right[right_index])
+      right_index += 1
+    } else if (right_index === right.length){
+      sorted_arr.push(left[left_index])
+      left_index += 1
+    }
+
+  }
+  return sorted_arr
+}
