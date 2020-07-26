@@ -7,6 +7,7 @@ condition to terminate
 to make a perfect recursive function , you have to understand 2 parts of it
   1. Base case in which where do you wanna the function terminates its process
   2. Rule in which that reduces all the other cases towards the the base case
+  and this is why it is calling itself
 */
 
 function recursive_factorial(number){
@@ -56,4 +57,13 @@ function merge(left , right){
 
   }
   return sorted_arr
+}
+
+
+function merge_sort(arr){
+  if(arr.length === 1){
+    return arr
+  }
+  let mid = Math.floor(arr.length / 2)
+  let left = merge_sort(arr[])
 }
