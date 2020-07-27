@@ -44,6 +44,25 @@ in this game, each cell surrounds by 8 neighbors
                                         |                              overpopulation  
                                       live
 
-     
+*/ // set up the 2d
+let rows = 40;
+let cols = 40;
 
-*/ 
+function createWorld() {
+  let world = document.querySelector("#world");
+  let tbl = document.createElement("table");
+  tbl.setAttribute("id", "worldGrid");
+  for (let i = 0; i < rows; i++) {
+    let tr = document.createElement("tr");
+    for (let j = 0; j < cols; j++) {
+      let cell = document.createElement("td");
+      tr.appendChild(cell);
+    }
+    tbl.appendChild(tr);
+  }
+  world.appendChild(tbl);
+}
+
+window.onload = () => {
+  createWorld();
+};
