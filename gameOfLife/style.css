@@ -1,9 +1,9 @@
-body {
+/* body {
   background: #333;
-}
+} */
 
 #world {
-  padding-bottom: 10px;
+  padding-bottom: 20px;
 }
 table {
   background-color: whitesmoke;
@@ -12,4 +12,11 @@ td {
   border: 1px solid darkgray;
   width: 10px;
   height: 10px;
+}
+
+td.dead {
+  background-color: transparent;
+}
+td.alive {
+  background-color:blue;
 }

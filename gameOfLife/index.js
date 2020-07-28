@@ -48,14 +48,36 @@ in this game, each cell surrounds by 8 neighbors
 let rows = 40;
 let cols = 40;
 
+let m = new Array(rows).map(() => console.log("h"))
+console.log(m)
+
 function createWorld() {
+
+  // trigger the world id in the body
   let world = document.querySelector("#world");
+
+  // create a table so we can add later to the world id after
+  // structure it 
   let tbl = document.createElement("table");
   tbl.setAttribute("id", "worldGrid");
+
+  // loop over each rows
   for (let i = 0; i < rows; i++) {
+
+
+    // in each loop create a tr tag
     let tr = document.createElement("tr");
+
+
+    // for each row-loop add these columns 
     for (let j = 0; j < cols; j++) {
+
+      // create a td tags and set attributes so we can manipulate them 
       let cell = document.createElement("td");
+
+      cell.setAttribute("id" , i + '_' +  j)
+      cell.setAttribute("class" , "dead")
+      cell.addEventListener("click" , toggleCell)
       tr.appendChild(cell);
     }
     tbl.appendChild(tr);
@@ -63,6 +85,19 @@ function createWorld() {
   world.appendChild(tbl);
 }
 
+
+function toggleCell(){
+  let location = this.id.split("_")
+  let row = Number(location[0])
+  let col = Number(location[1])
+
+  if(this.className === "alive"){
+    this.setAttribute("class" , "dead")
+
+  } else {
+    this.setAttribute("class" , "alive")
+  }
+}
 window.onload = () => {
   createWorld();
 };
